@@ -1,0 +1,356 @@
+/* ============================================
+   Acompaña Salud - Estilos modernos
+   ============================================ */
+
+:root {
+    --verde-900: #0f3d1a;
+    --verde-800: #1b5e20;
+    --verde-700: #2e7d32;
+    --verde-600: #43a047;
+    --verde-500: #66bb6a;
+    --verde-200: #c8e6c9;
+    --verde-100: #e8f5e9;
+    
+    --fondo-logo: #FCFBF7; 
+
+    --gris-900: #1a1a1a;
+    --gris-700: #4a4a4a;
+    --gris-500: #7a7a7a;
+    --gris-300: #d4d4d4;
+    --gris-200: #E2E2DF;
+    --gris-100: #f5f5f5;
+
+    --blanco: #ffffff;
+    --rojo-error: #d32f2f;
+
+    --sombra-suave: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --sombra-media: 0 4px 12px rgba(27, 94, 32, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --sombra-fuerte: 0 20px 40px rgba(27, 94, 32, 0.15), 0 8px 16px rgba(0, 0, 0, 0.06);
+    --sombra-focus: 0 0 0 4px rgba(67, 160, 71, 0.15);
+
+    --radio-sm: 8px;
+    --radio-md: 12px;
+    --radio-lg: 20px;
+
+    --transicion: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--gris-900);
+    background: 
+        radial-gradient(circle at 20% 0%, rgba(102, 187, 106, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 80% 100%, rgba(67, 160, 71, 0.12) 0%, transparent 45%),
+        linear-gradient(160deg, #f0f7f1 0%, #e3f0e5 100%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Contenedor principal
+   ============================================ */
+
+.contenedor {
+    position: relative;
+    background-color: var(--fondo-logo);
+    padding: 40px 40px 40px;
+    border-radius: var(--radio-lg);
+    box-shadow: var(--sombra-fuerte);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    width: 100%;
+    max-width: 520px;
+    overflow: hidden;
+    animation: entradaContenedor 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contenedor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--verde-800) 0%, var(--verde-500) 50%, var(--verde-800) 100%);
+    background-size: 200% 100%;
+    animation: gradienteDeslizante 4s ease infinite;
+}
+
+.contenedor::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(102, 187, 106, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+@keyframes entradaContenedor {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gradienteDeslizante {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+}
+
+/* ============================================
+   Logo
+   ============================================ */
+
+.logo-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.logo {
+    max-width: 312px;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(27, 94, 32, 0.1));
+}
+
+/* ============================================
+   Tipografía y Formulario
+   ============================================ */
+
+.subtitulo {
+    text-align: center;
+    color: var(--gris-500);
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 32px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}
+
+form {
+    position: relative;
+    z-index: 1;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: var(--verde-800);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--gris-200);
+    border-radius: var(--radio-md);
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--gris-900);
+    background-color: var(--blanco);
+    transition: border-color var(--transicion), box-shadow var(--transicion), background-color var(--transicion);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232e7d32' d='M6 8.825L1.175 4 2.05 3.125 6 7.075 9.95 3.125 10.825 4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--gris-300);
+    font-weight: 400;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--verde-500);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--verde-700);
+    background-color: var(--blanco);
+    box-shadow: var(--sombra-focus);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+}
+
+#contadorPalabras {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--gris-500);
+    text-align: right;
+    font-weight: 500;
+    transition: color var(--transicion);
+}
+
+/* ============================================
+   Campos ocultos (AQUÍ ESTÁ LA MAGIA)
+   ============================================ */
+
+.campo-oculto {
+    display: none;
+}
+
+.campo-oculto.visible {
+    display: block;
+    animation: aparecer 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   Botón
+   ============================================ */
+
+button {
+    position: relative;
+    margin-top: 32px;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--verde-600) 0%, var(--verde-800) 100%);
+    color: var(--blanco);
+    border: none;
+    border-radius: var(--radio-md);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform var(--transicion), box-shadow var(--transicion), background var(--transicion);
+    box-shadow: 0 4px 14px rgba(46, 125, 50, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--verde-600) 0%, var(--verde-900) 100%);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+button:focus-visible {
+    outline: none;
+    box-shadow: 0 4px 14px rgba(46, 125, 50, 0.3), 0 0 0 4px rgba(67, 160, 71, 0.3);
+}
+
+/* ============================================
+   Estados de validación
+   ============================================ */
+
+input:invalid:not(:placeholder-shown):not(:focus),
+textarea:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: rgba(211, 47, 47, 0.5);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 560px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .contenedor {
+        padding: 30px 24px 28px;
+        border-radius: var(--radio-md);
+    }
+
+    .logo {
+        max-width: 260px;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 12px 14px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   Accesibilidad: reduce motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

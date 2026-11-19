@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Acompaña Salud</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="logo-contenedor">
+            <img src="logo.jpg" alt="Acompaña Salud" class="logo">
+        </div>
+
+        <form id="formulario">
+            <p class="subtitulo">Completá el formulario para solicitar el servicio</p>
+            
+            <label for="nombrePaciente">Nombre del Paciente:</label>
+            <input type="text" id="nombrePaciente" placeholder="Ingrese el nombre del paciente" required>
+
+            <label for="nombreContratante">Nombre de quien contrata el servicio:</label>
+            <input type="text" id="nombreContratante" placeholder="Ingrese su nombre" required>
+
+            <label for="ubicacion">Ubicación:</label>
+            <select id="ubicacion" required>
+                <option value="">-- Seleccione una ubicación --</option>
+                <option value="Hospital Irurzun">Hospital Irurzun</option>
+                <option value="Hospital Ferreyra">Hospital Ferreyra</option>
+                <option value="Clínica Azul">Clínica Azul</option>
+                <option value="Acompañamiento domiciliario">Acompañamiento domiciliario</option>
+                <option value="Acompañamiento en trámites y gestión médica">Acompañamiento en trámites y gestión médica</option>
+            </select>
+
+            <!-- BLOQUE 2: Domiciliario -->
+            <div id="grupoDomicilio" class="campo-oculto">
+                <label for="direccionDomicilio">Dirección del acompañamiento:</label>
+                <input type="text" id="direccionDomicilio" placeholder="Ingrese la dirección">
+            </div>
+
+            <!-- BLOQUE 3: Trámites -->
+            <div id="grupoTramites" class="campo-oculto">
+                <label for="direccionAcompanamiento">Dirección del acompañamiento:</label>
+                <input type="text" id="direccionAcompanamiento" placeholder="Ingrese la dirección del acompañamiento">
+                
+                <label for="direccionTramites">Dirección del lugar de los trámites:</label>
+                <input type="text" id="direccionTramites" placeholder="Ingrese la dirección donde se realizan los trámites">
+            </div>
+
+            <label for="dia">Día:</label>
+            <input type="date" id="dia" required>
+
+            <label for="horario">Horario:</label>
+            <input type="time" id="horario" required>
+
+            <label for="descripcion">Descripción del caso (máx. 100 palabras):</label>
+            <textarea id="descripcion" rows="5" maxlength="600" placeholder="Describa brevemente el caso..." required></textarea>
+            <small id="contadorPalabras">0 / 100 palabras</small>
+
+            <button type="button" id="btnEnviar">Enviar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
