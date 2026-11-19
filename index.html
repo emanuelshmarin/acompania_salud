@@ -16,10 +16,27 @@
             <p class="subtitulo">Completá el formulario para solicitar el servicio</p>
             
             <label for="nombrePaciente">Nombre del Paciente:</label>
-            <input type="text" id="nombrePaciente" placeholder="Ingrese el nombre del paciente" required>
+            <input 
+                type="text" 
+                id="nombrePaciente" 
+                placeholder="Ingrese el nombre del paciente" 
+                required
+                inputmode="text"
+                pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+"
+                title="Solo se permiten letras"
+                autocomplete="off"
+                >
 
             <label for="nombreContratante">Nombre de quien contrata el servicio:</label>
-            <input type="text" id="nombreContratante" placeholder="Ingrese su nombre" required>
+            <input 
+                type="text" 
+                id="nombreContratante" 
+                placeholder="Ingrese su nombre" 
+                inputmode="text"
+                pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+"
+                title="Solo se permiten letras"
+                autocomplete="off"
+                required>
 
             <label for="ubicacion">Ubicación:</label>
             <select id="ubicacion" required>

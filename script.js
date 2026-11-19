@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const contador = document.getElementById('contadorPalabras');
     const btnEnviar = document.getElementById('btnEnviar');
 
+    const nombrePaciente = document.getElementById('nombrePaciente');
+    const nombreContratante = document.getElementById('nombreContratante');
+
+    nombrePaciente.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]/g, '');
+    });
+
+    nombreContratante.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]/g, '');
+    });
+
     // MOSTRAR / OCULTAR CAMPOS
     ubicacion.addEventListener('change', function () {
         const valor = ubicacion.value;
